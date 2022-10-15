@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="login.component.css">
+</head>
+<body>
+    <form [formGroup]="loginRef" (ngSubmit)="signIn()">
+    <div class="container register-form">
+      <div class="form">
+        <div class="heading">
+          <p>Admin Login Page</p>
+        </div>
+
+        <div class="form-content">
+            <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                Email Id : <input type="email" formControlName="emailid" required="Email is required"/><br/> <br/>
+       <div *ngIf="loginRef.controls['emailid']?.invalid && loginRef.controls['emailid']?.touched">
+        <span style="color:red">Email is required</span>
+    </div>  <br/>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-group">
+                Password : <input type="password" formControlName="password" required="Password is required"/> <br/> <br/>
+       <div *ngIf="loginRef.controls['password']?.invalid && loginRef.controls['password']?.touched">
+        <span style="color:red">Password is required</span>
+    </div> <br/>
+              </div>
+
+            </div>
+          </div>
+          <button type="submit" class="btnSubmit" [disabled]="loginRef.invalid">Login</button> <br/> <br/>
+          <span style="color:green">{{msg}}</span><br/> <br/>
+          <div class="text-center"><a routerLink="/signUp">Signup</a></div>
+        </div>
+      </div>
+    </div>
+
+  </form>
+
+  <br><br>
+</body>
+
+</html>
